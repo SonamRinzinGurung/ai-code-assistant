@@ -1,8 +1,7 @@
 from fastapi import FastAPI
-from routers import explain
 from fastapi.middleware.cors import CORSMiddleware
 
-app = FastAPI(title="AI Code Buddy")
+app = FastAPI(title="Prospect Analyzer")
 
 origins = ["http://localhost:5173"]
 
@@ -13,9 +12,6 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
-
-app.include_router(explain.router, prefix="/api", tags=["explain"])
-
 @app.get("/")
 def root():
-    return {"message": "Welcome to AI Code Buddy!"}
+    return {"message": "Welcome to AI Prospect Analyzer"}
